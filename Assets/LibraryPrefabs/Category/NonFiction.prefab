@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 8434212622619873956}
   - component: {fileID: 357256372}
   m_Layer: 5
-  m_Name: Bookcategory
+  m_Name: BookcategoryButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -271,8 +271,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ShowBorrowPanel
+      - m_Target: {fileID: 7784067834220820978}
+        m_MethodName: InitBookDetails
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

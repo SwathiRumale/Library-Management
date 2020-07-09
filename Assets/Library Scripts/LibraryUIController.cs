@@ -23,14 +23,14 @@ public class LibraryUIController : Singleton<LibraryUIController>
     public Transform ParentForBookPrefabs;
 
     [Header("Prefabs for Books")]
-    public GameObject Comics;
-    public GameObject Action;
-    public GameObject Fiction;
-    public GameObject NonFiction;
+    public BookController Comics;
+    public BookController Action;
+    public BookController Fiction;
+    public BookController NonFiction;
 
     [Header("Add New Book Text Box")]
     public Text AddName;
-    public Dropdown AddCategory;
+    public string BookCategoryDropdown { get; set; }
     public int DropDownValue;
     public Text AddAuthorName;
     public Text AddLanguage;
@@ -58,25 +58,11 @@ public class LibraryUIController : Singleton<LibraryUIController>
     public int SelectID;
     public List<int> BooksList;
     public int BookID;
+    
 
-    private void Update()
-    {
-        switch (AddCategory.value)
-        {
-            case 1:
-                DropdownCategoryName = AddCategory.options[0].text;
-                break;
-            case 2:
-                DropdownCategoryName = AddCategory.options[1].text;
-                break;
-            case 3:
-                DropdownCategoryName = AddCategory.options[2].text;
-                break;
-            case 4:
-                DropdownCategoryName = AddCategory.options[3].text;
-                break;
-        }
-    }
+    //*************************** UI Panels and Button Control Starts****************//
+
+
 
     public void OnEnable()
     {
@@ -106,14 +92,17 @@ public class LibraryUIController : Singleton<LibraryUIController>
             panels.SetActive(false);
         }
     }
+
     public void OnBorrowBookSelect()
     {
         BorrowNotificationPanel.SetActive(true);
     }
+
     public void OnReturnBookSelect()
     {
         ReturnNotificationPanel.SetActive(true);
     }
+
     public void OnAddButtonSelected()
     {
         AddPanel.SetActive(true);
@@ -123,45 +112,6 @@ public class LibraryUIController : Singleton<LibraryUIController>
     {
         AddPanel.SetActive(false);
         GotoHomeScreen();
-    }
-
-    public string InitBookCategory()
-    {
-        if (LibraryUIController.Instance.AddCategory.options[0].text.Contains("Fiction"))
-        {
-            //For showing bookname and category on homescreen
-            DropdownCategoryName = LibraryUIController.Instance.AddCategory.options[0].text;
-            GameObject fiction = Instantiate(Fiction, ParentForBookPrefabs);
-            Debug.Log(" Instantiated ....");
-            BooksToBeBorrowedInfo.Instance.NameOfThisBook.text = LibraryManagement.Instance.NameAPI;
-            BookName.text = "";
-            BookName.text = BooksToBeBorrowedInfo.Instance.NameOfThisBook.text;
-            BooksToBeBorrowedInfo.Instance.CategoryOfThisBook.text = LibraryManagement.Instance.CategoryAPI;
-           
-            //For book id
-            BookID bookID = fiction.AddComponent<BookID>();
-            BooksList.Add(BookID);
-            BookID = LibraryManagement.Instance.idAPI;
-            Debug.Log("BookID is" + BookID);
-
-        }
-
-        else if (LibraryUIController.Instance.AddCategory.options[1].text.Contains("Action"))
-        {
-            DropdownCategoryName = LibraryUIController.Instance.AddCategory.options[1].text;
-            GameObject action = Instantiate(Action, ParentForBookPrefabs);
-        }
-        else if (LibraryUIController.Instance.AddCategory.options[2].text.Contains("Non-Fiction"))
-        {
-            DropdownCategoryName = LibraryUIController.Instance.AddCategory.options[2].text;
-            GameObject nonfiction = Instantiate(NonFiction, ParentForBookPrefabs);
-        }
-        else if (LibraryUIController.Instance.AddCategory.options[3].text.Contains("Comics"))
-        {
-            DropdownCategoryName = LibraryUIController.Instance.AddCategory.options[3].text;
-            GameObject comics = Instantiate(Comics, ParentForBookPrefabs);
-        }
-        return DropdownCategoryName;
     }
 
     public bool isMinimumWordsInIntroduction()
@@ -183,4 +133,73 @@ public class LibraryUIController : Singleton<LibraryUIController>
         yield return new WaitForSeconds(1.5f);
         WarningMessage.gameObject.SetActive(false);
     }
+
+    public void SetDropDownValue(Dropdown dropdown)
+    {
+        BookCategoryDropdown = dropdown.options[dropdown.value].text;
+    }
+
+
+    //*************************** UI Panels and Button Control ends****************//
+
+
+
+
+    //*************************** Books Prefab Instantiate and assign text start **********************//
+
+
+    public void InstantiateBook(BookDetails[] bookDetails)
+    {
+        foreach (var book in bookDetails)
+        {
+            if (book.Name != "")
+            {
+                //Debug.Log("Book.Category ->" + book.Category);
+                switch (book.Category)
+                {
+                    case "NonFiction":
+                        BookController nonfiction = Instantiate(NonFiction, ParentForBookPrefabs);
+                        nonfiction.NameOfThisBook.text = book.Name;
+                        nonfiction.CategoryOfThisBook.text = book.Category;
+                        //non.bookDetails.Name = book.Name;
+                        nonfiction.bookDetails = book;
+                        break;
+                    case "Fiction":
+                        BookController fiction = Instantiate(Fiction, ParentForBookPrefabs);
+                        fiction.NameOfThisBook.text = book.Name;
+                        fiction.CategoryOfThisBook.text = book.Category;
+                        fiction.bookDetails = book;
+                        break;
+
+                    case "Comics":
+                        BookController comics = Instantiate(Comics, ParentForBookPrefabs);
+                        comics.NameOfThisBook.text = book.Name;
+                        comics.CategoryOfThisBook.text = book.Category;
+                        comics.bookDetails = book;
+                        break;
+
+                    case "Action":
+                        BookController action = Instantiate(Action, ParentForBookPrefabs);
+                        action.NameOfThisBook.text = book.Name;
+                        action.CategoryOfThisBook.text = book.Category;
+                        action.bookDetails = book;
+                        break;
+                }
+            }
+        }
+    }
+
+    public void ResetFullScreenBorrowPanel()
+    {
+        BookName.text = "";
+        AuthorName.text = "";
+        //Rating.text = book.Rating;
+        Pages.text = "";
+        Language.text = "";
+        Introduction.text = "";
+        //BookBackgroundColour =  
+    }
+
+    //*************************** Books Prefab Instantiate and assign text ends **********************//
 }
+

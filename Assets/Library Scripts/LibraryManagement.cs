@@ -9,11 +9,6 @@ using Pixelplacement;
 public class LibraryManagement : Singleton<LibraryManagement>
 {
     public string APIendpoint = "https://5db87d87177b350014ac7b45.mockapi.io";
-    //public string[] ListOfBooksInCollection;
-    public List<string> ListOfBooksInCollection;
-    public List<GameObject> AllBooks;
-
-
 
     [Header("Book Detailas from API")]
     public int idAPI;
@@ -26,40 +21,46 @@ public class LibraryManagement : Singleton<LibraryManagement>
     public int PagesAPI;
     public string IntroductionAPI;
 
-    private void OnEnable()
-    {
-        CheckForExistingBooks();
-    }
-
     private void Start()
     {
-        //Debug.Log("API IS" + APIendpoint + "AddBooks");
-        //StartCoroutine(GetBookList($"{APIendpoint}/AddBooks?"));
-        //= $"{ApiEndpoint}/project/getContactDataForProject/{projectID}/{projectsectionID}?";
-        //StartCoroutine(GetBookList("https://5db87d87177b350014ac7b45.mockapi.io/AddBooks"));
-        //StartCoroutine(UploadNewBook("https://5db87d87177b350014ac7b45.mockapi.io/AddBooks"));
-        //StartCoroutine(DeleteBook("https://5db87d87177b350014ac7b45.mockapi.io/AddBooks/5"));
+        GetBookList();
     }
 
-    
+
+    // ***************************Upload new book and fetch existing book method start *************************//
+
+
     public void AddNewBookToTheCollection()
     {
-        StartCoroutine(UploadNewBook("https://5db87d87177b350014ac7b45.mockapi.io/AddBooks"));
+        PostNewBook();
+        GetBookList();
     }
 
-    public void GetBookInTheCollection()
+    public void GetBookList()
     {
-        //todo: ask why i got error here
-        //StartCoroutine(GetBookList($"{APIendpoint}/AddBooks"));
-        StartCoroutine(GetBookList("https://5db87d87177b350014ac7b45.mockapi.io/AddBooks"));
+        StartCoroutine(_GetBookList("https://5db87d87177b350014ac7b45.mockapi.io/AddBooks"));
     }
 
-    IEnumerator UploadNewBook(string url)
+    public void PostNewBook()
+    {
+        StartCoroutine(_PostNewBook("https://5db87d87177b350014ac7b45.mockapi.io/AddBooks"));
+    }
+
+
+    // ***************************Upload new book and fetch existing book method ends *************************//
+
+
+
+
+
+    // ***************************Get, Post, Delete Couroutine Start *************************//
+
+    IEnumerator _PostNewBook(string url)
     {
         WWWForm form = new WWWForm();
-        form.AddField("Name",LibraryUIController.Instance.AddName.text);
-        form.AddField("Category", LibraryUIController.Instance.InitBookCategory());
-        Debug.Log("Drop Down 1 is" + LibraryUIController.Instance.AddCategory.options[1].text);
+        form.AddField("Name", LibraryUIController.Instance.AddName.text);
+        form.AddField("Category", LibraryUIController.Instance.BookCategoryDropdown);
+        //Debug.Log("Drop Down 1 is" + LibraryUIController.Instance.BookCategoryDropdown.options[1].text);
         form.AddField("Rating", LibraryUIController.Instance.Rating.text);
         form.AddField("AuthorName", LibraryUIController.Instance.AddAuthorName.text);
         form.AddField("Language", LibraryUIController.Instance.AddLanguage.text);
@@ -76,7 +77,7 @@ public class LibraryManagement : Singleton<LibraryManagement>
         }
         else
         {
-            Debug.Log("Received: " + uwr.downloadHandler.text);
+            Debug.Log("Uploaded NewBook: " + uwr.downloadHandler.text);
         }
     }
 
@@ -95,59 +96,25 @@ public class LibraryManagement : Singleton<LibraryManagement>
         }
     }
 
-    IEnumerator GetBookList(string uri)
+    IEnumerator _GetBookList(string uri)
     {
         UnityWebRequest uwr = UnityWebRequest.Get(uri);
+        Debug.Log("GetBookList url ->" + uri);
         yield return uwr.SendWebRequest();
 
         //Creating an Object of class containing an array of Book Details
-        RootBookCollection bookCollectionObject;
+        BookCollection bookCollectionObject;
 
         //Getting data in JSON and storing inside the object (we are handling the JSON data which we are getting array and converting into JSON object to fix "JSON must represent an object type")
-        bookCollectionObject = JsonUtility.FromJson<RootBookCollection>("{\"rootbookCollection\":" + uwr.downloadHandler.text + "}");
+        bookCollectionObject = JsonUtility.FromJson<BookCollection>("{\"rootbookCollection\":" + uwr.downloadHandler.text + "}");
 
         //To read the data inside JSON object we need to convert the object to JSON
         var myjson = JsonUtility.ToJson(bookCollectionObject);
 
         // myjson now has data in JSON format
-        var myObj = JsonUtility.FromJson<RootBookCollection>(myjson);
-        BookDetails[] b  = myObj.rootbookCollection;
-        foreach(var bn in b)
-        {
-            //ListOfBooksInCollection.Add(bn.Name);
-            NameAPI = bn.Name;
-            CategoryAPI = bn.Category;
-            idAPI = bn.id;
+        var myObj = JsonUtility.FromJson<BookCollection>(myjson);
+        BookDetails[] bookDetails = myObj.bookCollection;
 
-            Debug.Log("idapi is " + idAPI);
-            LibraryUIController.Instance.InitBookCategory();
-            if (LibraryUIController.Instance.BookID == LibraryUIController.Instance.SelectID)
-            {
-                Debug.Log("newbook and select book are equal");
-                Debug.Log("b is" + b);
-                yield return b;
-            }
-        }
-        
-        //for(StartPrefabCount = CurrentPrefabCount; StartPrefabCount <= b.Length; StartPrefabCount++)
-        //{
-        //    Debug.Log("b.length is ->" + b.Length);
-        //    Debug.Log("CurrentPrefabCount before" + CurrentPrefabCount);
-        //    CurrentPrefabCount = StartPrefabCount + 1;
-        //    Debug.Log("CurrentPrefabCount after" + CurrentPrefabCount);
-        //}
-        
-        //foreach (var v in myObj.rootbookCollection)
-        //{
-        //    
-        //    if (LibraryUIController.Instance.Rating != null)
-        //    {
-        //        for(int i = 1; i <= v.Rating; i++)
-        //        {
-        //            Instantiate(LibraryUIController.Instance.Stars,LibraryUIController.Instance.StarsParent);
-        //        }
-        //    }
- 
         if (uwr.isNetworkError)
         {
             Debug.Log("Error While Sending: " + uwr.error);
@@ -155,33 +122,39 @@ public class LibraryManagement : Singleton<LibraryManagement>
         else
         {
             Debug.Log("Received: " + uwr.downloadHandler.text);
+            LibraryUIController.Instance.InstantiateBook(bookDetails);
         }
-    }
-
-    private void CheckForExistingBooks()
-    {
-        GetBookInTheCollection();
     }
 }
 
+// *************************** Get, Post, Delete Couroutine Ends *************************//
+
+
+
+
+
+
+// *************************** Book Details Serializable Class Start *************************//
 [Serializable]
 public class BookDetails
 {
-public int id;
-public string Name;
-public string Category;
-public string AuthorName;
-public int Rating;
-public string Language;
-public int Year;
-public int Pages;
-public string Introduction;
+    public int id;
+    public string Name;
+    public string Category;
+    public string AuthorName;
+    public int Rating;
+    public string Language;
+    public int Year;
+    public int Pages;
+    public string Introduction;
 }
 
 [Serializable]
-public class RootBookCollection
+public class BookCollection
 {
-    public BookDetails[] rootbookCollection;
+    public BookDetails[] bookCollection;
 }
 
-        
+// *************************** Book Details Serializable Class End *************************//
+
+

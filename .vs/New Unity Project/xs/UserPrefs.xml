@@ -1,15 +1,14 @@
 ﻿<Properties StartupConfiguration="{B2B58FB2-4462-6B0C-A872-40DD957E5FE0}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Library Scripts/LibraryManagement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Library Scripts/LibraryUIController.cs">
     <Files>
-      <File FileName="Assets/Library Scripts/LIbraryManagement.cs" Line="78" Column="10" />
-      <File FileName="Assets/Library Scripts/LibraryUIController.cs" Line="145" Column="30" />
-      <File FileName="Assets/Library Scripts/BookID.cs" Line="10" Column="3" />
-      <File FileName="Assets/Library Scripts/BooksToBeBorrowedInfo.cs" Line="20" Column="1" />
+      <File FileName="Assets/Library Scripts/LibraryUIController.cs" Line="26" Column="26" IsPinned="True" />
+      <File FileName="Assets/Library Scripts/BooksToBeBorrowedInfo.cs" Line="7" Column="28" />
+      <File FileName="Assets/Library Scripts/LibraryManagement.cs" Line="87" Column="43" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="05ec8566-1208-4b6f-beec-92fc6a78e018" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="7b279da1-35f3-429a-b9b2-a2bbb1f34b5c" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
