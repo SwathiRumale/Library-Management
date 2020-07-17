@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{B2B58FB2-4462-6B0C-A872-40DD957E5FE0}</ProjectGuid>
+    <ProjectGuid>{A99CB6B0-DB5E-82F0-92E6-A8D33B5EE419}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -65,7 +65,7 @@
   <ItemGroup>
     <Compile Include="Assets\Library Scripts\BookController.cs" />
     <Compile Include="Assets\Library Scripts\BookID.cs" />
-    <Compile Include="Assets\Library Scripts\BooksToBeReturnedScript.cs" />
+    <Compile Include="Assets\Library Scripts\BooksBorrowed.cs" />
     <Compile Include="Assets\Library Scripts\LibraryManagement.cs" />
     <Compile Include="Assets\Library Scripts\LibraryUIController.cs" />
     <Compile Include="Assets\Pixelplacement\Surge\Chooser\Chooser.cs" />
@@ -142,61 +142,61 @@
     <None Include="Assets\Pixelplacement\Surge\ReadMe.txt" />
     <None Include="Assets\Pixelplacement\Surge\License.txt" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Editor">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-weaver.Editor">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Runtime">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Hub/Editor/2019.3.7f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -370,19 +370,19 @@
       <HintPath>/Applications/Unity/Hub/Editor/2019.3.7f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements.Editor">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/New Unity Project/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>/Users/SwathiMAC/Desktop/MY MAC/Learning/LibraryManagement/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>/Applications/Unity/Hub/Editor/2019.3.7f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -747,7 +747,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{79391AC5-8752-B4CC-F33F-BB9EB1094377}</Project>
+      <Project>{813050E6-C46B-4EEE-151A-44A382E7C409}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
   </ItemGroup>

@@ -33,7 +33,6 @@ public class LibraryManagement : Singleton<LibraryManagement>
     public void AddNewBookToTheCollection()
     {
         PostNewBook();
-        GetBookList();
     }
 
     public void GetBookList()
@@ -46,7 +45,10 @@ public class LibraryManagement : Singleton<LibraryManagement>
         StartCoroutine(_PostNewBook("https://5db87d87177b350014ac7b45.mockapi.io/AddBooks"));
     }
 
-
+    public void DeleteBook(int id)
+    {
+        StartCoroutine(DeleteBook("https://5db87d87177b350014ac7b45.mockapi.io/AddBooks/" + id));
+    }
     // ***************************Upload new book and fetch existing book method ends *************************//
 
 
@@ -78,6 +80,7 @@ public class LibraryManagement : Singleton<LibraryManagement>
         else
         {
             Debug.Log("Uploaded NewBook: " + uwr.downloadHandler.text);
+            LibraryManagement.Instance.GetBookList();
         }
     }
 
@@ -104,16 +107,15 @@ public class LibraryManagement : Singleton<LibraryManagement>
 
         //Creating an Object of class containing an array of Book Details
         BookCollection bookCollectionObject;
-
         //Getting data in JSON and storing inside the object (we are handling the JSON data which we are getting array and converting into JSON object to fix "JSON must represent an object type")
-        bookCollectionObject = JsonUtility.FromJson<BookCollection>("{\"rootbookCollection\":" + uwr.downloadHandler.text + "}");
-
+        bookCollectionObject = JsonUtility.FromJson<BookCollection>("{\"bookCollection\":" + uwr.downloadHandler.text + "}");
         //To read the data inside JSON object we need to convert the object to JSON
         var myjson = JsonUtility.ToJson(bookCollectionObject);
 
         // myjson now has data in JSON format
         var myObj = JsonUtility.FromJson<BookCollection>(myjson);
         BookDetails[] bookDetails = myObj.bookCollection;
+
 
         if (uwr.isNetworkError)
         {
@@ -124,6 +126,7 @@ public class LibraryManagement : Singleton<LibraryManagement>
             Debug.Log("Received: " + uwr.downloadHandler.text);
             LibraryUIController.Instance.InstantiateBook(bookDetails);
         }
+       
     }
 }
 

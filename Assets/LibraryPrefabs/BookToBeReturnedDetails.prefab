@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 6287485933779868313}
   - component: {fileID: 6287485933779868319}
   - component: {fileID: 5311020805627106364}
-  - component: {fileID: 9142738719958061932}
+  - component: {fileID: 5698480525016925856}
   m_Layer: 5
   m_Name: BookToBeReturnedDetails
   m_TagString: Untagged
@@ -626,7 +626,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9142738719958061932}
+      - m_Target: {fileID: 5698480525016925856}
         m_MethodName: OnBooksToBeReturnedSelected
         m_Mode: 1
         m_Arguments:
@@ -637,7 +637,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &9142738719958061932
+--- !u!114 &5698480525016925856
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -649,3 +649,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4806f98d2e8044e13bf6435cfa429ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Name: {fileID: 6287485932322610295}
+  Category: {fileID: 6287485933019910850}
+  Author: {fileID: 6287485932930160059}
