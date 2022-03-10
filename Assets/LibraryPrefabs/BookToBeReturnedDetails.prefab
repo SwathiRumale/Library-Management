@@ -252,7 +252,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Brida
+  m_Text: 
 --- !u!1 &6287485932901803287
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +402,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Paulo Caulo
+  m_Text: 
 --- !u!1 &6287485933019910860
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,7 +479,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ART
+  m_Text: 
 --- !u!1 &6287485933779868315
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,3 +652,5 @@ MonoBehaviour:
   Name: {fileID: 6287485932322610295}
   Category: {fileID: 6287485933019910850}
   Author: {fileID: 6287485932930160059}
+  Id: 0
+  CategoryIcon: {fileID: 6287485932901803285}

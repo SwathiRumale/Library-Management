@@ -7062,9 +7062,11 @@ MonoBehaviour:
   BooksBorrowedTransform: {fileID: 966346057}
   YesBorrow: {fileID: 1612859739}
   NoBorrow: {fileID: 125033149}
+  BookBorrowNameText: {fileID: 1334859086}
   YesReturn: {fileID: 1530737466}
   Noreturn: {fileID: 1222423023}
   CurrentReturnID: 0
+  BookReturnNameText: {fileID: 518591972}
   ComicsSprite: {fileID: 21300000, guid: f7230fca805ee40e1be1519ca1596c0e, type: 3}
   FictionSprite: {fileID: 21300000, guid: c9fb5296221804ee58f19083aafdaa17, type: 3}
   NonFictionSprite: {fileID: 21300000, guid: fc62466ffffa4494f8bd142ab5b85c56, type: 3}
@@ -9979,7 +9981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.03137255, g: 0.078431375, b: 0.5686275, a: 1}
+  m_Color: {r: 0.16078432, g: 0.2509804, b: 0.2627451, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

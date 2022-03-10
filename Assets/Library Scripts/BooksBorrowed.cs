@@ -10,6 +10,7 @@ public class BooksBorrowed : MonoBehaviour
     public Text Category;
     public Text Author;
     public int Id;
+    public Image CategoryIcon;
 
 
     public void Init()
@@ -20,5 +21,6 @@ public class BooksBorrowed : MonoBehaviour
     {
         LibraryUIController.Instance.CurrentReturnID = Id;
         LibraryUIController.Instance.OnReturnBookSelect();
+        LibraryUIController.Instance.BookReturnNameText.text = Name.text;
     }
 }

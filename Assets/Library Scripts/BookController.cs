@@ -33,7 +33,7 @@ public class BookController : Singleton<BookController>
         LibraryUIController.Instance.CurrentBookName = bookDetails.Name;
         LibraryUIController.Instance.CurrentCategoryname = bookDetails.Category;
         LibraryUIController.Instance.CurrentReturnID = bookDetails.id;
-        LibraryUIController.Instance.SetSprite();
+        LibraryUIController.Instance.SetSprite(LibraryUIController.Instance.CurrentBookIcon, LibraryUIController.Instance.CurrentCategoryname);
         LibraryUIController.Instance.CurrentbooksBorrowed = this;
     }
 

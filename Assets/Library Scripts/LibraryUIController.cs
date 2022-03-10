@@ -58,11 +58,13 @@ public class LibraryUIController : Singleton<LibraryUIController>
     public Transform BooksBorrowedTransform;
     public Button YesBorrow;
     public Button NoBorrow;
+    public Text BookBorrowNameText;
 
     [Header("Books Return")]
     public Button YesReturn;
     public Button Noreturn;
     public int CurrentReturnID;
+    public Text BookReturnNameText;
 
     [Header("Books Sprite for various Categories")]
     public Sprite ComicsSprite;
@@ -128,6 +130,7 @@ public class LibraryUIController : Singleton<LibraryUIController>
     public void OnBorrowBookSelect()
     {
         BorrowNotificationPanel.SetActive(true);
+        BookBorrowNameText.text = CurrentBookName;
     }
 
     public void OnReturnBookSelect()
@@ -216,7 +219,7 @@ public class LibraryUIController : Singleton<LibraryUIController>
             booksBorrowed.Category.text = CurrentCategoryname;
             booksBorrowed.Id = CurrentReturnID;
             BorrowedBooks.Add(booksBorrowed);
- 
+            SetSprite(booksBorrowed.CategoryIcon, booksBorrowed.Category.text);
     }
 
     public void ShowBorrowedList()
@@ -306,18 +309,18 @@ public class LibraryUIController : Singleton<LibraryUIController>
         }
     }
 
-    public void SetSprite()
+    public void SetSprite(Image bookImage, string categoryName)
     {
-        switch (CurrentCategoryname)
+        switch (categoryName)
         {
             case "Fiction":
-                CurrentBookIcon.sprite = FictionSprite;
+                bookImage.sprite = FictionSprite;
                 break;
             case "NonFiction":
-                CurrentBookIcon.sprite = NonFictionSprite;
+                bookImage.sprite = NonFictionSprite;
                 break;
             case "Comics":
-                CurrentBookIcon.sprite = ComicsSprite;
+                bookImage.sprite = ComicsSprite;
                 break;
             case "Action":
                 CurrentBookIcon.sprite = ActionSprite;
