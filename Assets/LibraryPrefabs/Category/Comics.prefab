@@ -76,7 +76,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Brida
+  m_Text: 
 --- !u!1 &7692053629549109750
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,7 +492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.7490196, b: 0.7490196, a: 1}
+  m_Color: {r: 1, g: 0.9843137, b: 0.61960787, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -841,7 +841,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -58}
+  m_AnchoredPosition: {x: 0, y: -39}
   m_SizeDelta: {x: -100, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7692053630740665206
@@ -870,9 +870,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dc43af5b2fd82418f9912d2fc63e2586, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f7230fca805ee40e1be1519ca1596c0e, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -955,6 +955,16 @@ MonoBehaviour:
   _dontDestroyOnLoad: 0
   NameOfThisBook: {fileID: 7692053629377965999}
   CategoryOfThisBook: {fileID: 7692053629549109748}
+  bookDetails:
+    id: 0
+    Name: 
+    Category: 
+    AuthorName: 
+    Rating: 0
+    Language: 
+    Year: 0
+    Pages: 0
+    Introduction: 
 --- !u!1 &7692053631286714098
 GameObject:
   m_ObjectHideFlags: 0

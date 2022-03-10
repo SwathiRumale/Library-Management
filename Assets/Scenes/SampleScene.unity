@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.4964124, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1089,7 +1089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.03137255, g: 0.078431375, b: 0.5686275, a: 1}
+  m_Color: {r: 0.16078432, g: 0.2509804, b: 0.2627451, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1243,7 +1243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.67058825, g: 0.4745098, b: 0.5019608, a: 0.92941177}
+  m_Color: {r: 0.627451, g: 0.7254902, b: 0.65882355, a: 0.92941177}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2809,7 +2809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.03137255, g: 0.078431375, b: 0.5686275, a: 1}
+  m_Color: {r: 0.16078432, g: 0.2509804, b: 0.2627451, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5140,7 +5140,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 8867359868
+  m_Text: (365)-440-5872
 --- !u!222 &862154619
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6341,9 +6341,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Brigade Rd.
+  m_Text: 'Niagra
 
-    560001'
+    LSE1'
 --- !u!222 &1128977214
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7065,6 +7065,10 @@ MonoBehaviour:
   YesReturn: {fileID: 1530737466}
   Noreturn: {fileID: 1222423023}
   CurrentReturnID: 0
+  ComicsSprite: {fileID: 21300000, guid: f7230fca805ee40e1be1519ca1596c0e, type: 3}
+  FictionSprite: {fileID: 21300000, guid: c9fb5296221804ee58f19083aafdaa17, type: 3}
+  NonFictionSprite: {fileID: 21300000, guid: fc62466ffffa4494f8bd142ab5b85c56, type: 3}
+  ActionSprite: {fileID: 21300000, guid: e9475c0326c8945119aec12b6ed5f002, type: 3}
   DropdownCategoryName: 
   SelectID: 0
   BooksList: 
@@ -7072,9 +7076,10 @@ MonoBehaviour:
   CurrentAuthorName: 
   CurrentCategoryname: 
   CurrentBookName: 
+  CurrentBookIcon: {fileID: 1740600}
   CurrentbooksBorrowed: {fileID: 0}
   BorrowedBooks: []
-  CurrentBookInBorrowpage: {fileID: 0}
+  bo: []
 --- !u!4 &1236973870
 Transform:
   m_ObjectHideFlags: 0
@@ -8433,7 +8438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.03137255, g: 0.078431375, b: 0.5686275, a: 1}
+  m_Color: {r: 0.16078432, g: 0.2509804, b: 0.2627451, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -8825,7 +8830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.03137255, g: 0.078431375, b: 0.5686275, a: 1}
+  m_Color: {r: 0.16078432, g: 0.2509804, b: 0.2627451, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -11121,7 +11126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.03137255, g: 0.078431375, b: 0.5686275, a: 1}
+  m_Color: {r: 0.16078432, g: 0.2509804, b: 0.2627451, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -11646,7 +11651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.03137255, g: 0.078431375, b: 0.5686275, a: 1}
+  m_Color: {r: 0.16078432, g: 0.2509804, b: 0.2627451, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

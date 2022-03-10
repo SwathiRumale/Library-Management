@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{0CE0E21C-1090-9DCB-4137-424C4072EA1A}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Library Scripts/BookController.cs">
+    <Files>
+      <File FileName="Assets/Library Scripts/LibraryUIController.cs" Line="328" Column="1" />
+      <File FileName="Assets/Library Scripts/BookController.cs" Line="36" Column="50" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="faf02c04-d5e6-4e99-9d1d-142757a98006" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -64,6 +64,12 @@ public class LibraryUIController : Singleton<LibraryUIController>
     public Button Noreturn;
     public int CurrentReturnID;
 
+    [Header("Books Sprite for various Categories")]
+    public Sprite ComicsSprite;
+    public Sprite FictionSprite;
+    public Sprite NonFictionSprite;
+    public Sprite ActionSprite;
+
     [Header("Public Variables for reference used in methods")]
     public string DropdownCategoryName;
     public int SelectID;
@@ -72,6 +78,7 @@ public class LibraryUIController : Singleton<LibraryUIController>
     public string CurrentAuthorName;
     public string CurrentCategoryname;
     public string CurrentBookName;
+    public Image CurrentBookIcon;
     public BookController CurrentbooksBorrowed;
 
     public List<BooksBorrowed> BorrowedBooks = new List<BooksBorrowed>();
@@ -296,6 +303,27 @@ public class LibraryUIController : Singleton<LibraryUIController>
                     }
                 }
             }
+        }
+    }
+
+    public void SetSprite()
+    {
+        switch (CurrentCategoryname)
+        {
+            case "Fiction":
+                CurrentBookIcon.sprite = FictionSprite;
+                break;
+            case "NonFiction":
+                CurrentBookIcon.sprite = NonFictionSprite;
+                break;
+            case "Comics":
+                CurrentBookIcon.sprite = ComicsSprite;
+                break;
+            case "Action":
+                CurrentBookIcon.sprite = ActionSprite;
+                break;
+            default:
+                break;
         }
     }
 
