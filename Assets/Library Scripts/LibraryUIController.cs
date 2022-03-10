@@ -7,63 +7,62 @@ using UnityEngine.UI;
 
 public class LibraryUIController : Singleton<LibraryUIController>
 {
-    [Header("UI Main Panels")]
+    [Header("MAIN PANELS")]
     public List<GameObject> HomeScreenPanel;
-    public GameObject BorrowPanel;
-    public GameObject AddPanel;
+    public Transform FullScreenBorrowPanel;
+    public Transform FullScreenAddNewBooksPanel;
 
-    [Header("Other Screens Apart From Home Screen")]
+    [Header("OTHER SCREENS (Apart From Home Screen)")]
     public List<GameObject> OtherScreens;
 
-    [Header("Notification Panels")]
+    [Header("NOTIFICATION PANELS")]
     public GameObject BorrowNotificationPanel;
     public GameObject ReturnNotificationPanel;
 
-    [Header("Parent for Books")]
-    public Transform ParentForBookPrefabs;
+    [Header("CONTENT FOR BOOK COLLECTION")]
+    public Transform BookCollectionContent;
 
-    [Header("Prefabs for Books")]
+    [Header("PREFABS FOR BOOKS COLLECTION")]
     public BookController Comics;
     public BookController Action;
     public BookController Fiction;
     public BookController NonFiction;
 
-    [Header("Add New Book Text Box")]
-    public Text AddName;
+    [Header("TEXT REFERENCES - ADD NEW BOOK")]
+    public Text AddNewBookNameText;
     public string BookCategoryDropdown { get; set; }
     public int DropDownValue;
-    public Text AddAuthorName;
-    public Text AddLanguage;
-    public Text AddYear;
-    public Text AddPages;
-    public Text AddIntroductin;
+    public Text AddNewAuthorText;
+    public Text AddNewLanguageText;
+    public Text AddNewYearText;
+    public Text AddNewPagesText;
+    public Text AddNewDescription;
 
-    [Header("Warning Message for Introduction")]
-    public Text WarningMessage;
+    [Header("TEXT REFERENCES - WARNING MESSAGE")]
+    public Text WarningText;
 
-    [Header("Book Ratings and Details")]
-    public Text BookName;
-    public Text AuthorName;
-    public Text Rating;
-    public GameObject Stars;
+    [Header("TEXT REFERENCES - BOOK RATING & DETAILS")]
+    public Text BookNameText;
+    public Text AuthorNameText;
+    public Text RatingText;
+    public GameObject StarsPrefab;
     public Transform StarsParent;
-    public Text Pages;
-    public Text Language;
-    public Text Year;
-    public Text Introduction;
-    public Color[] BookBackgroundColour;
+    public Text PagesText;
+    public Text LanguageText;
+    public Text YearText;
+    public Text DescriptionText;
 
-    [Header("Books Borrowed")]
+    [Header("BOOKS BORROWED PANEL REFERENCES")]
     public BooksBorrowed BooksBorrowedPrefab;
-    public Transform BooksBorrowedTransform;
+    public Transform BooksBorrowedContent;
     public Button YesBorrow;
     public Button NoBorrow;
     public Text BookBorrowNameText;
 
-    [Header("Books Return")]
+    [Header("BOOKS RETURN PANEL REFERENCES")]
     public Button YesReturn;
     public Button Noreturn;
-    public int CurrentReturnID;
+    public int CurrentReturnID { get; set; }
     public Text BookReturnNameText;
 
     [Header("Books Sprite for various Categories")]
@@ -76,12 +75,12 @@ public class LibraryUIController : Singleton<LibraryUIController>
     public string DropdownCategoryName;
     public int SelectID;
     public List<int> BooksList;
-    public int CurrentBookID;
-    public string CurrentAuthorName;
-    public string CurrentCategoryname;
-    public string CurrentBookName;
+    public int CurrentBookID { get; set; }
+    public string CurrentAuthorName { get; set; }
+    public string CurrentCategoryname { get; set; }
+    public string CurrentBookName { get; set; }
     public Image CurrentBookIcon;
-    public BookController CurrentbooksBorrowed;
+    public BookController CurrentbooksBorrowed { get; set; }
 
     public List<BooksBorrowed> BorrowedBooks = new List<BooksBorrowed>();
 
@@ -90,8 +89,6 @@ public class LibraryUIController : Singleton<LibraryUIController>
     public event OnBorrowButtonYesClicked onBorrowButtonYesClicked;
 
     //*************************** UI Panels and Button Control Starts****************//
-    public List<BooksBorrowed> bo = new List<BooksBorrowed>();
-
 
     public void OnEnable()
     {
@@ -109,7 +106,7 @@ public class LibraryUIController : Singleton<LibraryUIController>
     /// </summary>
     public void ShowBorrowPanel()
     {
-        BorrowPanel.SetActive(true);
+        FullScreenBorrowPanel.gameObject.SetActive(true);
     }
     /// <summary>
     /// To back to Home Screen
@@ -140,19 +137,18 @@ public class LibraryUIController : Singleton<LibraryUIController>
 
     public void OnAddButtonSelected()
     {
-        AddPanel.SetActive(true);
+        FullScreenAddNewBooksPanel.gameObject.SetActive(true);
     }
 
     public void OnEnterSelect()
     {
-        AddPanel.SetActive(false);
+        FullScreenAddNewBooksPanel.gameObject.SetActive(false);
         GotoHomeScreen();
-        //LibraryManagement.Instance.GetBookList();
     }
 
     public bool isMinimumWordsInIntroduction()
     {
-        if (AddIntroductin.text.Length < 100)
+        if (AddNewDescription.text.Length < 100)
         {
             return true;
         }
@@ -165,29 +161,28 @@ public class LibraryUIController : Singleton<LibraryUIController>
 
     IEnumerator ShowWarningMessageForTwoSecond()
     {
-        WarningMessage.gameObject.SetActive(true);
+        WarningText.gameObject.SetActive(true);
         yield return new WaitForSeconds(1.5f);
-        WarningMessage.gameObject.SetActive(false);
+        WarningText.gameObject.SetActive(false);
     }
 
     public void SetDropDownValue(Dropdown dropdown)
     {
-        Debug.Log("Drop Down" + dropdown.options[dropdown.value].text);
+        //Debug.Log("Drop Down" + dropdown.options[dropdown.value].text);
         BookCategoryDropdown = dropdown.options[dropdown.value].text;
     }
 
     public void InstantiateStar(int count)
     {
-        //ResetStars();
-        for(int i = 0; i < count; i++)
+        for (int i = 0; i < count; i++)
         {
-            Instantiate(Stars, StarsParent);
+            Instantiate(StarsPrefab, StarsParent);
         }
     }
 
     private void ResetStars()
     {
-        foreach(Transform star in StarsParent)
+        foreach (Transform star in StarsParent)
         {
             DestroyImmediate(star.gameObject);
         }
@@ -195,58 +190,44 @@ public class LibraryUIController : Singleton<LibraryUIController>
 
     public void OnYesBorrow()
     {
-        //if (onBorrowButtonYesClicked != null)
-        //{
-        //    onBorrowButtonYesClicked();
-        //    Debug.Log("onBorrowButtonYesClicked invoke");
-        //}
-        //BooksBorrowed  booksBorrowed = Instantiate(BooksBorrowedPrefab, BooksBorrowedTransform);
-
-        // BorrowedBooks.Add(booksBorrowed);
         Destroy(CurrentbooksBorrowed.gameObject);
         GotoHomeScreen();
-        Debug.Log("Destroyed" + CurrentbooksBorrowed);
         InstantiateBooksBorrowed();
-        //BorrowPanel.SetActive(false);
-        //LibraryManagement.Instance.GetBookList();
     }
 
     public void InstantiateBooksBorrowed()
     {
-            BooksBorrowed booksBorrowed = Instantiate(BooksBorrowedPrefab, BooksBorrowedTransform);
-            booksBorrowed.Author.text = CurrentAuthorName;
-            booksBorrowed.Name.text = CurrentBookName;
-            booksBorrowed.Category.text = CurrentCategoryname;
-            booksBorrowed.Id = CurrentReturnID;
-            BorrowedBooks.Add(booksBorrowed);
-            SetSprite(booksBorrowed.CategoryIcon, booksBorrowed.Category.text);
+        BooksBorrowed booksBorrowed = Instantiate(BooksBorrowedPrefab, BooksBorrowedContent);
+        booksBorrowed.Author.text = CurrentAuthorName;
+        booksBorrowed.Name.text = CurrentBookName;
+        booksBorrowed.Category.text = CurrentCategoryname;
+        booksBorrowed.Id = CurrentReturnID;
+        BorrowedBooks.Add(booksBorrowed);
+        SetSprite(booksBorrowed.CategoryIcon, booksBorrowed.Category.text);
     }
 
     public void ShowBorrowedList()
     {
-        foreach(var booksborrowed in BorrowedBooks)
+        foreach (var booksborrowed in BorrowedBooks)
         {
-            Instantiate(booksborrowed, BooksBorrowedTransform);
+            Instantiate(booksborrowed, BooksBorrowedContent);
         }
     }
 
 
     public void OnYesReturn()
     {
-        //LibraryManagement.Instance.DeleteBook(CurrentReturnID);
         foreach (var book in BorrowedBooks)
         {
-            if(book.Id == CurrentReturnID)
+            if (book.Id == CurrentReturnID)
             {
                 BooksList.Remove(book.Id);
-                Debug.Log("removed-------");
                 BorrowedBooks.Remove(book);
                 Destroy(book.gameObject);
                 break;
             }
         }
-        //BooksList.Remove()
-        LibraryManagement.Instance.GetBookList();
+        LibraryManager.Instance.GetBookList();
     }
     //*************************** UI Panels and Button Control ends****************//
 
@@ -258,30 +239,24 @@ public class LibraryUIController : Singleton<LibraryUIController>
 
     public void InstantiateBook(BookDetails[] bookDetails)
     {
-        Debug.Log("InstantiateBook");
+        //Debug.Log("InstantiateBook");
         foreach (var book in bookDetails)
         {
             if (!BooksList.Contains(book.id))
             {
-                Debug.Log("returned without instatiation");
-                //  return;
-                //}
-                Debug.Log("Book.name" + book.Name);
                 if (book.Name != "")
                 {
-                    //Debug.Log("Book.Category ->" + book.Category);
                     switch (book.Category)
                     {
                         case "NonFiction":
-                            BookController nonfiction = Instantiate(NonFiction, ParentForBookPrefabs);
+                            BookController nonfiction = Instantiate(NonFiction, BookCollectionContent);
                             nonfiction.NameOfThisBook.text = book.Name;
                             nonfiction.CategoryOfThisBook.text = book.Category;
-                            //non.bookDetails.Name = book.Name;
                             nonfiction.bookDetails = book;
                             BooksList.Add(book.id);
                             break;
                         case "Fiction":
-                            BookController fiction = Instantiate(Fiction, ParentForBookPrefabs);
+                            BookController fiction = Instantiate(Fiction, BookCollectionContent);
                             fiction.NameOfThisBook.text = book.Name;
                             fiction.CategoryOfThisBook.text = book.Category;
                             fiction.bookDetails = book;
@@ -289,7 +264,7 @@ public class LibraryUIController : Singleton<LibraryUIController>
                             break;
 
                         case "Comics":
-                            BookController comics = Instantiate(Comics, ParentForBookPrefabs);
+                            BookController comics = Instantiate(Comics, BookCollectionContent);
                             comics.NameOfThisBook.text = book.Name;
                             comics.CategoryOfThisBook.text = book.Category;
                             comics.bookDetails = book;
@@ -297,7 +272,7 @@ public class LibraryUIController : Singleton<LibraryUIController>
                             break;
 
                         case "Action":
-                            BookController action = Instantiate(Action, ParentForBookPrefabs);
+                            BookController action = Instantiate(Action, BookCollectionContent);
                             action.NameOfThisBook.text = book.Name;
                             action.CategoryOfThisBook.text = book.Category;
                             action.bookDetails = book;
@@ -332,13 +307,11 @@ public class LibraryUIController : Singleton<LibraryUIController>
 
     public void ResetFullScreenBorrowPanel()
     {
-        BookName.text = "";
-        AuthorName.text = "";
-        //Rating.text = book.Rating;
-        Pages.text = "";
-        Language.text = "";
-        Introduction.text = "";
-        //BookBackgroundColour =  
+        BookNameText.text = "";
+        AuthorNameText.text = "";
+        PagesText.text = "";
+        LanguageText.text = "";
+        DescriptionText.text = "";
     }
 
     public void Reset()
@@ -346,6 +319,7 @@ public class LibraryUIController : Singleton<LibraryUIController>
         ResetStars();
         ResetFullScreenBorrowPanel();
     }
+
     //*************************** Books Prefab Instantiate and assign text ends **********************//
 }
 

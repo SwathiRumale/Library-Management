@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 using Pixelplacement;
 
 public class BookController : Singleton<BookController>
@@ -11,22 +8,12 @@ public class BookController : Singleton<BookController>
 
     public BookDetails bookDetails;
 
-
-    //public void OnEnable()
-    //{
-    //    LibraryUIController.Instance.onBorrowButtonYesClicked += InstantiateBooksBorrowed;
-    //}
-
-    //public void OnDisable()
-    //{
-    //    LibraryUIController.Instance.onBorrowButtonYesClicked -= InstantiateBooksBorrowed;
-    //}
     /// <summary>
     /// On click of Book prefab
     /// </summary>
     public void InitBookDetails()
     {
-        LibraryUIController.Instance.BorrowPanel.SetActive(true);
+        LibraryUIController.Instance.FullScreenBorrowPanel.gameObject.SetActive(true);
         SetBorrowPanelDetails();
         LibraryUIController.Instance.CurrentBookID = bookDetails.id;
         LibraryUIController.Instance.CurrentAuthorName = bookDetails.AuthorName;
@@ -39,11 +26,11 @@ public class BookController : Singleton<BookController>
 
     public void SetBorrowPanelDetails()
     {
-        LibraryUIController.Instance.BookName.text = bookDetails.Name;
-        LibraryUIController.Instance.AuthorName.text = bookDetails.AuthorName;
+        LibraryUIController.Instance.BookNameText.text = bookDetails.Name;
+        LibraryUIController.Instance.AuthorNameText.text = bookDetails.AuthorName;
         LibraryUIController.Instance.InstantiateStar(bookDetails.Rating);
-        LibraryUIController.Instance.Pages.text = bookDetails.Pages.ToString();
-        LibraryUIController.Instance.Language.text = bookDetails.Language;
-        LibraryUIController.Instance.Introduction.text = bookDetails.Introduction;
+        LibraryUIController.Instance.PagesText.text = bookDetails.Pages.ToString();
+        LibraryUIController.Instance.LanguageText.text = bookDetails.Language;
+        LibraryUIController.Instance.DescriptionText.text = bookDetails.Introduction;
     }
 }

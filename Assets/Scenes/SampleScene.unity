@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 1740601}
   - component: {fileID: 1740600}
   m_Layer: 5
-  m_Name: Image
+  m_Name: CurrentBookIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -712,7 +712,7 @@ GameObject:
   - component: {fileID: 138150372}
   - component: {fileID: 138150373}
   m_Layer: 5
-  m_Name: BookoCollectionContent
+  m_Name: BookCollectionContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1227,7 +1227,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 382.54443, y: -367.5254}
+  m_AnchoredPosition: {x: 382.54443, y: -367.52505}
   m_SizeDelta: {x: 201.37549, y: 735.0501}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &241328897
@@ -2395,7 +2395,7 @@ GameObject:
   - component: {fileID: 401788478}
   - component: {fileID: 401788477}
   m_Layer: 5
-  m_Name: Text
+  m_Name: AddNewPagesText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2546,7 +2546,7 @@ GameObject:
   - component: {fileID: 406787800}
   - component: {fileID: 406787799}
   m_Layer: 5
-  m_Name: Text
+  m_Name: AddNewDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3310,7 +3310,7 @@ GameObject:
   - component: {fileID: 497734466}
   - component: {fileID: 497734468}
   m_Layer: 0
-  m_Name: LibraryManagement
+  m_Name: LibraryManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3329,16 +3329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dontDestroyOnLoad: 0
-  APIendpoint: http(s)://5db87d87177b350014ac7b45.mockapi.io/
-  idAPI: 0
-  NameAPI: 
-  CategoryAPI: 
-  AuthorNameAPI: 
-  RatingAPI: 0
-  LanguageAPI: 
-  YearAPI: 0
-  PagesAPI: 0
-  IntroductionAPI: 
+  APIEndpoint: https://5db87d87177b350014ac7b45.mockapi.io
 --- !u!4 &497734467
 Transform:
   m_ObjectHideFlags: 0
@@ -3377,7 +3368,7 @@ GameObject:
   - component: {fileID: 518591973}
   - component: {fileID: 518591972}
   m_Layer: 5
-  m_Name: BookNameText
+  m_Name: BookReturnNameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4071,7 +4062,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Fiction
+  m_Text: Action
 --- !u!222 &658276327
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4264,7 +4255,7 @@ GameObject:
   - component: {fileID: 711780152}
   - component: {fileID: 711780151}
   m_Layer: 5
-  m_Name: Text
+  m_Name: BookNameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5750,7 +5741,7 @@ GameObject:
   - component: {fileID: 966346060}
   - component: {fileID: 966346061}
   m_Layer: 5
-  m_Name: Content
+  m_Name: BooksBorrowedContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5960,7 +5951,7 @@ GameObject:
   - component: {fileID: 991024453}
   - component: {fileID: 991024455}
   m_Layer: 5
-  m_Name: DescriptionText
+  m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6131,7 +6122,7 @@ GameObject:
   - component: {fileID: 1117322299}
   - component: {fileID: 1117322298}
   m_Layer: 5
-  m_Name: Text
+  m_Name: AddNewBookNameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6443,7 +6434,7 @@ GameObject:
   - component: {fileID: 1144224613}
   - component: {fileID: 1144224612}
   m_Layer: 5
-  m_Name: Text
+  m_Name: AddNewAuthorText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6924,7 +6915,7 @@ GameObject:
   - component: {fileID: 1235735781}
   - component: {fileID: 1235735780}
   m_Layer: 5
-  m_Name: AddNewBooksPanel
+  m_Name: FullScreenAddNewBooksPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7020,8 +7011,8 @@ MonoBehaviour:
   HomeScreenPanel:
   - {fileID: 557582492}
   - {fileID: 226862180}
-  BorrowPanel: {fileID: 1498422582}
-  AddPanel: {fileID: 1235735778}
+  FullScreenBorrowPanel: {fileID: 1498422583}
+  FullScreenAddNewBooksPanel: {fileID: 1235735779}
   OtherScreens:
   - {fileID: 1498422582}
   - {fileID: 1235735778}
@@ -7029,43 +7020,38 @@ MonoBehaviour:
   - {fileID: 404330893}
   BorrowNotificationPanel: {fileID: 404330893}
   ReturnNotificationPanel: {fileID: 1271012099}
-  ParentForBookPrefabs: {fileID: 138150369}
+  BookCollectionContent: {fileID: 138150369}
   Comics: {fileID: 4010541483866068144, guid: 760ea39b70a944a7d8c76b4a6c84c78f, type: 3}
   Action: {fileID: 8607684923932077576, guid: f9311ec14cc2040b6aea615397cdf1e1, type: 3}
   Fiction: {fileID: 4347610228409243107, guid: a36d2480064ac49adab31a3b18fc12a2, type: 3}
   NonFiction: {fileID: 7784067834220820978, guid: 2a1c356ef068742338ffe5a453806b9d,
     type: 3}
-  AddName: {fileID: 1117322298}
+  AddNewBookNameText: {fileID: 1117322298}
   DropDownValue: 0
-  AddAuthorName: {fileID: 1144224612}
-  AddLanguage: {fileID: 2123421848}
-  AddYear: {fileID: 1340320166}
-  AddPages: {fileID: 401788477}
-  AddIntroductin: {fileID: 406787799}
-  WarningMessage: {fileID: 1600241141}
-  BookName: {fileID: 711780151}
-  AuthorName: {fileID: 1677140196}
-  Rating: {fileID: 1469089721}
-  Stars: {fileID: 3707527668359687849, guid: 0d5d4382aaf114f18942326ade6a7106, type: 3}
+  AddNewAuthorText: {fileID: 1144224612}
+  AddNewLanguageText: {fileID: 2123421848}
+  AddNewYearText: {fileID: 1340320166}
+  AddNewPagesText: {fileID: 401788477}
+  AddNewDescription: {fileID: 406787799}
+  WarningText: {fileID: 1600241141}
+  BookNameText: {fileID: 711780151}
+  AuthorNameText: {fileID: 1677140196}
+  RatingText: {fileID: 1469089721}
+  StarsPrefab: {fileID: 3707527668359687849, guid: 0d5d4382aaf114f18942326ade6a7106,
+    type: 3}
   StarsParent: {fileID: 408616672}
-  Pages: {fileID: 444308968}
-  Language: {fileID: 542931326}
-  Year: {fileID: 576202216}
-  Introduction: {fileID: 2129520258}
-  BookBackgroundColour:
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
+  PagesText: {fileID: 1367802970}
+  LanguageText: {fileID: 919284587}
+  YearText: {fileID: 1715557985}
+  DescriptionText: {fileID: 2129520258}
   BooksBorrowedPrefab: {fileID: 5698480525016925856, guid: 5e22b030823ee41e08d9b6e528ba6d4a,
     type: 3}
-  BooksBorrowedTransform: {fileID: 966346057}
+  BooksBorrowedContent: {fileID: 966346057}
   YesBorrow: {fileID: 1612859739}
   NoBorrow: {fileID: 125033149}
   BookBorrowNameText: {fileID: 1334859086}
   YesReturn: {fileID: 1530737466}
   Noreturn: {fileID: 1222423023}
-  CurrentReturnID: 0
   BookReturnNameText: {fileID: 518591972}
   ComicsSprite: {fileID: 21300000, guid: f7230fca805ee40e1be1519ca1596c0e, type: 3}
   FictionSprite: {fileID: 21300000, guid: c9fb5296221804ee58f19083aafdaa17, type: 3}
@@ -7074,14 +7060,8 @@ MonoBehaviour:
   DropdownCategoryName: 
   SelectID: 0
   BooksList: 
-  CurrentBookID: 0
-  CurrentAuthorName: 
-  CurrentCategoryname: 
-  CurrentBookName: 
   CurrentBookIcon: {fileID: 1740600}
-  CurrentbooksBorrowed: {fileID: 0}
   BorrowedBooks: []
-  bo: []
 --- !u!4 &1236973870
 Transform:
   m_ObjectHideFlags: 0
@@ -7304,7 +7284,7 @@ GameObject:
   - component: {fileID: 1271012102}
   - component: {fileID: 1271012101}
   m_Layer: 5
-  m_Name: ReturnNotificationPAnel
+  m_Name: ReturnNotificationPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7568,7 +7548,7 @@ GameObject:
   - component: {fileID: 1334859087}
   - component: {fileID: 1334859086}
   m_Layer: 5
-  m_Name: BookNameText
+  m_Name: BookBorrowNameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7645,7 +7625,7 @@ GameObject:
   - component: {fileID: 1340320167}
   - component: {fileID: 1340320166}
   m_Layer: 5
-  m_Name: Text
+  m_Name: AddNewYearText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8552,7 +8532,7 @@ GameObject:
   - component: {fileID: 1469089722}
   - component: {fileID: 1469089721}
   m_Layer: 5
-  m_Name: Text
+  m_Name: RatingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10442,7 +10422,7 @@ GameObject:
   - component: {fileID: 1677140197}
   - component: {fileID: 1677140196}
   m_Layer: 5
-  m_Name: Text
+  m_Name: AuthorNameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10498,7 +10478,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Yousuf Nugraha
+  m_Text: 
 --- !u!222 &1677140197
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11721,7 +11701,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 140.92822, y: -367.5254}
+  m_AnchoredPosition: {x: 140.92845, y: -367.52505}
   m_SizeDelta: {x: 281.8569, y: 735.0501}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1911271914
@@ -12442,7 +12422,7 @@ GameObject:
   - component: {fileID: 2123421849}
   - component: {fileID: 2123421848}
   m_Layer: 5
-  m_Name: Text
+  m_Name: AddNewLanguageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12642,7 +12622,7 @@ GameObject:
   - component: {fileID: 2129520259}
   - component: {fileID: 2129520258}
   m_Layer: 5
-  m_Name: Text
+  m_Name: DescriptionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

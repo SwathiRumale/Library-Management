@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-
 
 public class BooksBorrowed : MonoBehaviour
 {
@@ -12,11 +9,6 @@ public class BooksBorrowed : MonoBehaviour
     public int Id;
     public Image CategoryIcon;
 
-
-    public void Init()
-    {
-        
-    }
     public void OnBooksToBeReturnedSelected()
     {
         LibraryUIController.Instance.CurrentReturnID = Id;

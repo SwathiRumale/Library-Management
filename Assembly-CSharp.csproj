@@ -65,9 +65,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Library Scripts\BookController.cs" />
-    <Compile Include="Assets\Library Scripts\BookID.cs" />
     <Compile Include="Assets\Library Scripts\BooksBorrowed.cs" />
-    <Compile Include="Assets\Library Scripts\LibraryManagement.cs" />
+    <Compile Include="Assets\Library Scripts\LibraryManager.cs" />
     <Compile Include="Assets\Library Scripts\LibraryUIController.cs" />
     <Compile Include="Assets\Pixelplacement\Surge\Chooser\Chooser.cs" />
     <Compile Include="Assets\Pixelplacement\Surge\Chooser\Interfaces\IChooser.cs" />

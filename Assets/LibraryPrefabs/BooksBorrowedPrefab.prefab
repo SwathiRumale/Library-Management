@@ -495,7 +495,7 @@ GameObject:
   - component: {fileID: 5311020805627106364}
   - component: {fileID: 5698480525016925856}
   m_Layer: 5
-  m_Name: BookToBeReturnedDetails
+  m_Name: BooksBorrowedPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

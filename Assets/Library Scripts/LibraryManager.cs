@@ -1,33 +1,19 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using System;
-using UnityEngine.UI;
 using Pixelplacement;
 
-public class LibraryManagement : Singleton<LibraryManagement>
+public class LibraryManager : Singleton<LibraryManager>
 {
-    public string APIendpoint = "https://5db87d87177b350014ac7b45.mockapi.io";
-
-    [Header("Book Detailas from API")]
-    public int idAPI;
-    public string NameAPI;
-    public string CategoryAPI;
-    public string AuthorNameAPI;
-    public int RatingAPI;
-    public string LanguageAPI;
-    public int YearAPI;
-    public int PagesAPI;
-    public string IntroductionAPI;
+    public string APIEndpoint = "https://5db87d87177b350014ac7b45.mockapi.io";
 
     private void Start()
     {
         GetBookList();
     }
 
-
-    // ***************************Upload new book and fetch existing book method start *************************//
+    // *************************** Upload new book and fetch existing book method start *************************//
 
 
     public void AddNewBookToTheCollection()
@@ -49,9 +35,7 @@ public class LibraryManagement : Singleton<LibraryManagement>
     {
         StartCoroutine(DeleteBook("https://5db87d87177b350014ac7b45.mockapi.io/AddBooks/" + id));
     }
-    // ***************************Upload new book and fetch existing book method ends *************************//
-
-
+    // *************************** Upload new book and fetch existing book method ends *************************//
 
 
 
@@ -60,27 +44,26 @@ public class LibraryManagement : Singleton<LibraryManagement>
     IEnumerator _PostNewBook(string url)
     {
         WWWForm form = new WWWForm();
-        form.AddField("Name", LibraryUIController.Instance.AddName.text);
+        form.AddField("Name", LibraryUIController.Instance.AddNewBookNameText.text);
         form.AddField("Category", LibraryUIController.Instance.BookCategoryDropdown);
-        //Debug.Log("Drop Down 1 is" + LibraryUIController.Instance.BookCategoryDropdown.options[1].text);
-        form.AddField("Rating", LibraryUIController.Instance.Rating.text);
-        form.AddField("AuthorName", LibraryUIController.Instance.AddAuthorName.text);
-        form.AddField("Language", LibraryUIController.Instance.AddLanguage.text);
-        form.AddField("Year", LibraryUIController.Instance.AddYear.text);
-        form.AddField("Pages", LibraryUIController.Instance.AddPages.text);
-        form.AddField("Introduction", LibraryUIController.Instance.AddIntroductin.text);
+        form.AddField("Rating", LibraryUIController.Instance.RatingText.text);
+        form.AddField("AuthorName", LibraryUIController.Instance.AddNewAuthorText.text);
+        form.AddField("Language", LibraryUIController.Instance.AddNewLanguageText.text);
+        form.AddField("Year", LibraryUIController.Instance.AddNewYearText.text);
+        form.AddField("Pages", LibraryUIController.Instance.AddNewPagesText.text);
+        form.AddField("Introduction", LibraryUIController.Instance.AddNewDescription.text);
         LibraryUIController.Instance.isMinimumWordsInIntroduction();
         UnityWebRequest uwr = UnityWebRequest.Post(url, form);
         yield return uwr.SendWebRequest();
 
         if (uwr.isNetworkError)
         {
-            Debug.Log("Error While Sending: " + uwr.error);
+            Debug.Log("Error While Sending _PostNewBook -> : " + uwr.error);
         }
         else
         {
-            Debug.Log("Uploaded NewBook: " + uwr.downloadHandler.text);
-            LibraryManagement.Instance.GetBookList();
+            //Debug.Log("Uploaded NewBook: " + uwr.downloadHandler.text);
+            GetBookList();
         }
     }
 
@@ -91,18 +74,13 @@ public class LibraryManagement : Singleton<LibraryManagement>
 
         if (uwr.isNetworkError)
         {
-            Debug.Log("Error While Sending: " + uwr.error);
-        }
-        else
-        {
-            Debug.Log("Deleted");
+            Debug.Log("Error While Sending DeleteBook -> : " + uwr.error);
         }
     }
 
     IEnumerator _GetBookList(string uri)
     {
         UnityWebRequest uwr = UnityWebRequest.Get(uri);
-        Debug.Log("GetBookList url ->" + uri);
         yield return uwr.SendWebRequest();
 
         //Creating an Object of class containing an array of Book Details
@@ -116,17 +94,14 @@ public class LibraryManagement : Singleton<LibraryManagement>
         var myObj = JsonUtility.FromJson<BookCollection>(myjson);
         BookDetails[] bookDetails = myObj.bookCollection;
 
-
         if (uwr.isNetworkError)
         {
-            Debug.Log("Error While Sending: " + uwr.error);
+            Debug.Log("Error While Sending _GetBookList -> : " + uwr.error);
         }
         else
         {
-            Debug.Log("Received: " + uwr.downloadHandler.text);
             LibraryUIController.Instance.InstantiateBook(bookDetails);
         }
-       
     }
 }
 
