@@ -7,6 +7,7 @@ using Pixelplacement;
 public class LibraryManager : Singleton<LibraryManager>
 {
     public string APIEndpoint = "https://5db87d87177b350014ac7b45.mockapi.io";
+    public BookDetails[] bookDetails;
 
     private void Start()
     {
@@ -31,9 +32,13 @@ public class LibraryManager : Singleton<LibraryManager>
         StartCoroutine(_PostNewBook("https://5db87d87177b350014ac7b45.mockapi.io/AddBooks"));
     }
 
-    public void DeleteBook(int id)
+    public void DeleteBook()
     {
-        StartCoroutine(DeleteBook("https://5db87d87177b350014ac7b45.mockapi.io/AddBooks/" + id));
+        foreach(var book in bookDetails)
+        {
+            StartCoroutine(DeleteBook("https://5db87d87177b350014ac7b45.mockapi.io/AddBooks/" + book.id));
+        }
+       
     }
     // *************************** Upload new book and fetch existing book method ends *************************//
 
@@ -76,6 +81,10 @@ public class LibraryManager : Singleton<LibraryManager>
         {
             Debug.Log("Error While Sending DeleteBook -> : " + uwr.error);
         }
+        else
+        {
+            Debug.Log("Deleted Book ->" +url);
+        }
     }
 
     IEnumerator _GetBookList(string uri)
@@ -92,8 +101,8 @@ public class LibraryManager : Singleton<LibraryManager>
 
         // myjson now has data in JSON format
         var myObj = JsonUtility.FromJson<BookCollection>(myjson);
-        BookDetails[] bookDetails = myObj.bookCollection;
-
+        bookDetails = myObj.bookCollection;
+        
         if (uwr.isNetworkError)
         {
             Debug.Log("Error While Sending _GetBookList -> : " + uwr.error);
@@ -101,6 +110,7 @@ public class LibraryManager : Singleton<LibraryManager>
         else
         {
             LibraryUIController.Instance.InstantiateBook(bookDetails);
+            //DeleteBook();
         }
     }
 }

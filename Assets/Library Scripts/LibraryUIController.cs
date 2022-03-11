@@ -314,10 +314,24 @@ public class LibraryUIController : Singleton<LibraryUIController>
         DescriptionText.text = "";
     }
 
+    public void ResetFullScreenAddNewBooksPanel()
+    {
+        //aDebug.Log("ResetFullScreenAddNewBooksPanel");
+        AddNewAuthorText.transform.parent.GetComponent<InputField>().text = "";
+        AddNewBookNameText.transform.parent.GetComponent<InputField>().text = "";
+        AddNewDescription.transform.parent.GetComponent<InputField>().text = "";
+        AddNewLanguageText.transform.parent.GetComponent<InputField>().text = "";
+        AddNewYearText.transform.parent.GetComponent<InputField>().text = "";
+        AddNewPagesText.transform.parent.GetComponent<InputField>().text = "";
+        RatingText.transform.parent.GetComponent<InputField>().text = "";
+
+    }
+
     public void Reset()
     {
         ResetStars();
         ResetFullScreenBorrowPanel();
+        ResetFullScreenAddNewBooksPanel();
     }
 
     //*************************** Books Prefab Instantiate and assign text ends **********************//
